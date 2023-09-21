@@ -4,7 +4,7 @@ resource "random_password" "password" {
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
 
-resource "aws_ssm_parameter" "fdbpass" {
+resource "aws_ssm_parameter" "dbpass" {
   name  = var.db_name
   type  = "SecureString"
   value = random_password.password.result
@@ -28,7 +28,7 @@ resource "aws_db_subnet_group" "example" {
   name        = "my-db-subnet" # Use the same DB subnet group name as in aws_db_instance
   description = "Custom DB subnet group description"
 
-  subnet_ids = ["subnet-073c828416bb62b7f", "subnet-070ed811fe1cbb72a"] # Replace with your actual subnet IDs
+  subnet_ids = ["subnet-09f2ff1a9101d7a16", "subnet-025d5b42c4c0dc8de"] # Replace with your actual subnet IDs
 }
 
 resource "aws_security_group" "rds_security_group" {

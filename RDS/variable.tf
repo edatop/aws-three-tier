@@ -36,7 +36,7 @@ variable "instance_class" {
 
 variable "db_name" {
   type        = string
-  default     = ""
+  default     = "mydb" #why I can not leave as default? It created earlier when it was default..
   description = "Please provide a value"
 }
 
