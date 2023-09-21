@@ -28,7 +28,7 @@ resource "aws_db_subnet_group" "example" {
   name        = "my-db-subnet" # Use the same DB subnet group name as in aws_db_instance
   description = "Custom DB subnet group description"
 
-  subnet_ids = ["subnet-0704b2588f21e4111", "subnet-0d872c9f3271f4f9a"] # Replace with your actual subnet IDs
+  subnet_ids = ["subnet-073c828416bb62b7f", "subnet-070ed811fe1cbb72a"] # Replace with your actual subnet IDs
 }
 
 resource "aws_security_group" "rds_security_group" {
