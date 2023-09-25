@@ -25,3 +25,4 @@ output "private_subnet2" {
 output "private_subnet3" {
   value = aws_subnet.private3.id
 }
+

@@ -48,6 +48,48 @@ variable "min_size" {
 
 variable "subnets" {
   description = " Please provide list of subnets"
-  type        = list
+  type        = list(any)
   default     = []
 }
+
+variable "public_subnet1_cidr" {
+  description = "CIDR block for public subnet 1"
+  type        = string
+  default = ""
+}
+
+variable "public_subnet2_cidr" {
+  description = "CIDR block for public subnet 2"
+  type        = string
+  default = ""
+}
+
+# variable "user_data" {
+#   description = "User data script for EC2 instances"
+#   type        = string
+#   default     = <<-EOF
+#     #!/bin/bash
+
+#     echo Installing Telnet
+#     sudo yum update -y
+#     sudo yum install telnet -y
+#     sudo yum install httpd -y
+#     sudo yum install php -y
+#     sudo yum install php-mysql -y
+#     sudo systemctl restart httpd
+#     sudo systemctl enable httpd
+#     sudo yum install wget -y
+#     sudo wget https://wordpress.org/wordpress-4.0.32.tar.gz
+#     sudo tar -xf wordpress-4.0.32.tar.gz -C /var/www/html/
+#     sudo mv /var/www/html/wordpress/* /var/www/html/
+#     sudo echo "<?php phpinfo();?>" > /var/www/html/phpinfo.php 
+#     sudo chown -R apache:apache /var/www/html/
+#     sudo systemctl restart httpd
+#     EOF
+# }
+
+# variable "user_data" {
+#   description = "User data script for launch template"
+#   type        = string
+#   default     = ""
+# }
