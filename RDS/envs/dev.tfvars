@@ -6,7 +6,7 @@ engine_version         = "5.7"
 instance_class         = "db.t3.medium"
 username               = "foo"
 password               = "foobarbaz"
-publicly_accessible    = true
+publicly_accessible    = false
 db_subnet_group_name   = "my-db-subnet" # Replace with your actual subnet group name
 db_instance_identifier = "my-db-instance"
 

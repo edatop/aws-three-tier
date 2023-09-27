@@ -26,3 +26,11 @@ output "private_subnet3" {
   value = aws_subnet.private3.id
 }
 
+
+output "web_server_security_group" {
+  value = aws_security_group.web_server_security_group.id
+}
+
+output "mysql_security_group" {
+  value = aws_security_group.mysql.id
+}

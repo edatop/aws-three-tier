@@ -22,24 +22,13 @@ resource "aws_db_instance" "default" {
   skip_final_snapshot  = true
   publicly_accessible  = var.publicly_accessible
   db_subnet_group_name = "my-db-subnet" # Use the same DB subnet group name as in aws_db_subnet_group
+  vpc_security_group_ids  = [data.terraform_remote_state.main.outputs.mysql_security_group]
 }
 
 resource "aws_db_subnet_group" "example" {
   name        = "my-db-subnet" # Use the same DB subnet group name as in aws_db_instance
   description = "Custom DB subnet group description"
 
-  subnet_ids = ["subnet-04e1e10bc031914d5", "subnet-0a33600c367bc33a8"] # Replace with your actual subnet IDs
-}
-
-resource "aws_security_group" "rds_security_group" {
-  name        = "my-rds-security-group"
-  description = "Security group for RDS instance"
-
-  # Define ingress rules to allow incoming MySQL traffic from specific sources
-  ingress {
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # You can restrict this to specific IP ranges
-  }
+  subnet_ids = [data.terraform_remote_state.main.outputs.private_subnet1,
+  data.terraform_remote_state.main.outputs.private_subnet2] # Replace with your actual subnet IDs
 }

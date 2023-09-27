@@ -46,22 +46,22 @@ variable "min_size" {
   default     = ""
 }
 
-variable "subnets" {
-  description = " Please provide list of subnets"
-  type        = list(any)
-  default     = []
-}
+# variable "subnets" {
+#   description = " Please provide list of subnets"
+#   type        = list(any)
+#   default     = []
+# }
 
 variable "public_subnet1_cidr" {
   description = "CIDR block for public subnet 1"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "public_subnet2_cidr" {
   description = "CIDR block for public subnet 2"
   type        = string
-  default = ""
+  default     = ""
 }
 
 # variable "user_data" {
@@ -93,3 +93,4 @@ variable "public_subnet2_cidr" {
 #   type        = string
 #   default     = ""
 # }
+

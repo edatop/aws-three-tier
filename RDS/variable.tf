@@ -54,7 +54,7 @@ variable "password" {
 
 variable "publicly_accessible" {
   type        = bool
-  default     = true
+  default     = false
   description = "Please provide a value"
 }
 
